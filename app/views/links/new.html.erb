@@ -1,5 +1,6 @@
 <h1>Add your awesome link, yo!</h1>
 <%= form_for(@link) do |f| %>
+  <%= debug f%>
   <%= f.text_field :url %>
   <%= f.submit 'Add it!' %>
 <%end%>

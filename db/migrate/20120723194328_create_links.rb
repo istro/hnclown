@@ -4,10 +4,10 @@ class CreateLinks < ActiveRecord::Migration
       t.string :url
       t.string :title
       t.integer :rank
-      t.references :users
+      t.references :user
 
       t.timestamps
     end
-    add_index :links, :users_id
+    add_index :links, :user_id
   end
 end
