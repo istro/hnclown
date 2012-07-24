@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     #creates a session and makes a COOOOOOOOOKIE????? on their computer
     user = User.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      #sign in and send to links#index
+      #CREATE COOKIE
+      redirect_to '/links'
     else
       flash.now[:error] = "Invalid email/password combination"
       render 'new'
