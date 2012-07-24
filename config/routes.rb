@@ -1,9 +1,16 @@
 Hnclown::Application.routes.draw do
 
   root :to => 'links#index'
-  resources :links
 
-  match '/:url' => 'links#show'
+  resources :links
+  resources :users
+  resources :sessions
+
+  match '/signup' => 'users#new'
+  match '/signin' => 'sessions#new'
+  match '/signout' => 'sessions#destroy', via: :delete
+end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
