@@ -19,8 +19,13 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">HN Clown</a>
-          <a class="brand" href="/links/new">Add link</a>
+          <% if signed_in? %>
+            <%= link_to "Sign OUT!", signout_path, method: "delete" %>
+            <a class="brand" href="/signout", method: "delete">Sign Out</a>
+          <% else %>
+            <a class="brand" href="/signin">Sign In</a>
+          <% end %>
+          <a class="brand" href="/links/new">Submit</a>
         </div>
       </div>
     </div>

@@ -2,14 +2,13 @@ class SessionsController < ApplicationController
 
 
   def new
-    #sign in form here, with get request and link to register. Submit will POST to the create method
+    user = User.new
   end
 
   def create
-    #creates a session and makes a COOOOOOOOOKIE????? on their computer
     user = User.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      #CREATE COOKIE
+      sign_in user
       redirect_to '/links'
     else
       flash.now[:error] = "Invalid email/password combination"
@@ -18,8 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
-    render '/links'
+    sign_out
+    redirect_to root_path
   end
 
 end
