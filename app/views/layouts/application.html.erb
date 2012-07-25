@@ -20,8 +20,8 @@
       <div class="navbar-inner">
         <div class="container">
           <% if signed_in? %>
-            <%= link_to "Sign OUT!", signout_path, method: "delete" %>
-            <a class="brand" href="/signout", method: "delete">Sign Out</a>
+          <%= link_to 'sign out', signout_path, :method => "delete"%>
+            <a class="brand" href="/signout" data-method="delete" rel="nofollow">Sign Out</a>
           <% else %>
             <a class="brand" href="/signin">Sign In</a>
           <% end %>
