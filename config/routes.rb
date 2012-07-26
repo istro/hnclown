@@ -2,13 +2,14 @@ Hnclown::Application.routes.draw do
 
   root :to => 'links#index'
 
-  resources :links
+  resources :links, :except => [:destroy]
   resources :users
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup' => 'users#new'
   match '/signin' => 'sessions#new'
   match '/signout' => 'sessions#destroy', via: :delete
+  get '/user/profile' => 'users#show'
 end
 
 

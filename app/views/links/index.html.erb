@@ -1,8 +1,9 @@
-<center>
-<h1>Some totally awesome shit:
-  </h1>
+<%= render :partial => 'common/header', :locals => {:user => current_user}%>
 
-# render 'layouts/header'
+<center>
+<h1>Some totally awesome links:
+  </h1>
+<br><br>
 
 <% @links.each do |link| %>
 <%= link_to link.url, link.url %>

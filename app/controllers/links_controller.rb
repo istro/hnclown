@@ -8,17 +8,10 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
-    # all = Link.all
-    # warn 'new link:'
-    # warn @link.inspect
-    # warn 'all links:'
-    # warn all
-    if @link.save
-      redirect_to links_path
-    else
-      redirect_to new_link_path
-    end
+    warn 'here are me params before creating the link'
+    warn params.inspect
+    Link.create(params[:link])
+    redirect_to "/links"
   end
 
   def show

@@ -1,0 +1,14 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <% if signed_in? %>
+          <a class="brand" href="/user/profile" ><%= user.name %></a>
+          <span class="brand"> | </span>
+          <a class="brand" href="/signout" data-method="delete" rel="nofollow">Sign Out</a>
+        <% else %>
+          <a class="brand" href="/signin">Sign In</a>
+        <% end %>
+        <a class="brand" href="/links/new">Submit</a>
+      </div>
+    </div>
+  </div>

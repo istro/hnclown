@@ -1,6 +1,15 @@
+<%= render :partial => 'header'%>
 <h1>Add your awesome link, yo!</h1>
 <%= form_for(@link) do |f| %>
+  <%= f.label :url %>
   <%= f.text_field :url %>
+
+
+  <%=f.label :title%>
+  <%=f.text_field :title%>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+<br>
   <%= f.submit 'Add it!' %>
 <%end%>
 

@@ -1,6 +1,6 @@
 class Link  < ActiveRecord::Base
-  belongs_to :users
-  attr_accessible :rank, :title, :url
+  belongs_to :user
+  attr_accessible :rank, :title, :url, :user_id
 
   before_validation :prepend_www_http
   validates :url, :uniqueness => true
