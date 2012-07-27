@@ -10,6 +10,7 @@ gem 'bcrypt-ruby', '3.0.1'
 group :development do
   gem 'sqlite3'
   gem 'quiet_assets'
+  gem 'jazz_hands'
 end
 
 group :production do
