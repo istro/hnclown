@@ -4,10 +4,10 @@
 <h1>Some totally awesome links:
   </h1>
 <br><br>
-
+<br><br>
 <% @links.each do |link| %>
-<%= link_to link.url, link.url %>
-
+<%= link_to link.title, link.url %>
+<%= link_to 'edit my link', "/links/#{link.id}/edit" if link.user_id == current_user.id &&  link.created_at + 900 > Time.now%>
 <br>
 
 <% end %>
