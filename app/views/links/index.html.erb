@@ -6,15 +6,30 @@
 <br><br>
 <br><br>
 <% @links.each do |link| %>
-<%= link_to link.title, link.url %>
-<%= link_to 'edit my link', edit_link_path(:id => link.id) if current_user && link.user_id == current_user.id &&  link.created_at + 900 > Time.now%>
-<%= if current_user && link.user_id != current_user.id
-      link_to 'upvote', votes_path(:vote => { :content_id => link.id,
-                                            :user_id => current_user.id,
-                                            :content_type => 'Link'}), :method => :post
-    end%>
-<br>
-
+  <%= link_to link.title, link.url %>
+  <%= link_to 'edit my link', edit_link_path(:id => link.id) if current_user && link.user_id == current_user.id &&  link.created_at + 900 > Time.now%>
+  <%= if current_user && link.user_id != current_user.id
+        link_to '<i class="icon-arrow-up"></i>'.html_safe, votes_path(:vote => { :content_id => link.id,
+                                              :user_id => current_user.id,
+                                              :content_type => 'Link'}), :method => :post
+      end%>
+  <%=link.votes.length%>
+  <br>
 <% end %>
 
+<hr>
+
+<% ordered_by_votes = @links.vote_sorter%>
+<% ordered_by_votes.each do |hash| %>
+<% link = Link.find(hash[:id]) %>
+  <%= link_to link.title, link.url %>
+  <%= link_to 'edit my link', edit_link_path(:id => link.id) if current_user && link.user_id == current_user.id &&  link.created_at + 900 > Time.now%>
+  <%= if current_user && link.user_id != current_user.id
+        link_to '<i class="icon-arrow-up"></i>'.html_safe, votes_path(:vote => { :content_id => link.id,
+                                              :user_id => current_user.id,
+                                              :content_type => 'Link'}), :method => :post
+      end%>
+  <%=hash[:count]%>
+  <br>
+<% end %>
 </center>

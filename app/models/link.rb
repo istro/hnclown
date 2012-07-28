@@ -21,4 +21,19 @@ class Link  < ActiveRecord::Base
     end
     self.url
   end
+
+  def self.vote_sorter
+    links = Link.all
+    @votes = []
+    links.each do |link|
+      puts link
+      votecount = link.votes.length
+      puts votecount
+      hash = {:id => link.id, :count => votecount}
+      puts hash.inspect
+      @votes << hash
+    end
+    @votes.sort_by!{ |hash| hash[:count] }.reverse
+  end
 end
+
