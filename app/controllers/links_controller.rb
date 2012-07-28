@@ -9,7 +9,7 @@ class LinksController < ApplicationController
 
   def create
     Link.create(params[:link])
-    redirect_to "/links"
+    redirect_to links_path
   end
 
   def show

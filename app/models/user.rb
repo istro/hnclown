@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
 
   has_many :links
+  has_many :votes
 
   private
 

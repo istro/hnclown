@@ -7,7 +7,12 @@
 <br><br>
 <% @links.each do |link| %>
 <%= link_to link.title, link.url %>
-<%= link_to 'edit my link', "/links/#{link.id}/edit" if link.user_id == current_user.id &&  link.created_at + 900 > Time.now%>
+<%= link_to 'edit my link', edit_link_path(:id => link.id) if current_user && link.user_id == current_user.id &&  link.created_at + 900 > Time.now%>
+<%= if current_user && link.user_id != current_user.id
+      link_to 'upvote', votes_path(:vote => { :content_id => link.id,
+                                            :user_id => current_user.id,
+                                            :content_type => 'Link'}), :method => :post
+    end%>
 <br>
 
 <% end %>

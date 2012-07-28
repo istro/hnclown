@@ -1,10 +1,15 @@
 Hnclown::Application.routes.draw do
 
+  get "votes/new"
+
+  get "votes/create"
+
   root :to => 'links#index'
 
   resources :links, :except => [:destroy]
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :votes, :only => [:create]
 
   match '/signup' => 'users#new'
   match '/signin' => 'sessions#new'

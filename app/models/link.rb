@@ -5,7 +5,7 @@ class Link  < ActiveRecord::Base
   before_validation :prepend_www_http
   validates :url, :uniqueness => true
 
-
+  has_many :votes, :as => :content
 
 
   def prepend_www_http
