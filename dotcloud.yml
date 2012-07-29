@@ -1,0 +1,8 @@
+www:
+  type: ruby 
+  exclude_bundler_groups:
+    - development
+  postbuild: rake assets:precompile
+db:
+  type: postgresql
+  
