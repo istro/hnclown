@@ -23,3 +23,7 @@ production:
   database: db/production
   pool: 5
   timeout: 5000
+  host: clown-4ZHJNPGM.dotcloud.com
+  username: root
+  password: h3licoqtTrixPP5MFh4B
+  port: 33264
