@@ -1,8 +1,7 @@
 <%= render :partial => 'common/header', :locals => {:user => current_user}%>
 
 <center>
-<h1>Here's the list of some totally awesome links:
-  </h1>
+<h1>Here's the list of some totally awesome links:</h1>
 <br><br>
 <br><br>
 <% @links.each do |link| %>
@@ -18,7 +17,8 @@
 <% end %>
 
 <hr>
-
+<h2>ordered by popularity (beta):</h2>
+<br><br>
 <% ordered_by_votes = @links.vote_sorter%>
 <% ordered_by_votes.each do |hash| %>
 <% link = Link.find(hash[:id]) %>
