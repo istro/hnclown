@@ -14,3 +14,5 @@ Manually create users, limit functionality to authenticated users only.
 Manage sessions with cookies.
 
 Allow users to vote up links. Only links submitted by other users. Only once per user per link.
+
+Deployed on Heroku: http://hnclown.herokuapp.com/
